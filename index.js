@@ -1,4 +1,7 @@
-function knightMoves(){ //shows the shortest possible way to get from one square to another
+function knightMoves(){ 
+
+
+    //shows the shortest possible way to get from one square to another
     //output all the vertices knight will stop on along the way
 }
 //rule
@@ -8,3 +11,6 @@ function knightMoves(){ //shows the shortest possible way to get from one square
 //knight basic move >> 
 // two step forward, and one side step (any direction)
 //one step forward an two steps to the side ( any direction)
+
+
+//how do i build the graph? using x, y coordinates
