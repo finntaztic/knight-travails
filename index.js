@@ -1,40 +1,31 @@
-function knightMoves(){ 
-
-
-    //shows the shortest possible way to get from one square to another
-    //output all the vertices knight will stop on along the way
-}
-
-
-class squarePos{
-    constructor(row, col){
-        this.row = row;
-        this.col = col;
-    }
-}
-
 //chessboard
 class Graph {
     constructor(){
-        this.list = new Map();//it's like for each method,  
-        // accepts a callback and applies that function 
-        // to each element of an array, then return a new array
+        this.list = new Map();
     }
 
     //make a graph
-    addVertex(){
-        let currSquare = new squarePos(4, 3);
-        console.log(currSquare)
+    nextVertex(){
+        //this vertex will get the current position of the knight (row, col)
+        //use add edge funciton to determine the next possible move to give the next vertex
     }
 
     addEdge(){
-        //make the move of the knight
+        //make the move of the knight such that row +-2 col +-1
     }
 
+
+    knightMoves(){ 
+    //uses bfs
+    //shows the shortest possible way to get from one square to another
+    //output all the vertices knight will stop on along the way
+    }
 }
 
 const graph = new Graph();
-graph.addVertex()
+graph.addVertex(4,3);
+graph.addEdge(4,3);
+
 
 
 //     //add vertex
