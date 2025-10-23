@@ -4,27 +4,79 @@ class Graph {
         this.list = new Map();
     }
 
-    //make a graph
-    nextVertex(){
-        //this vertex will get the current position of the knight (row, col)
-        //use add edge funciton to determine the next possible move to give the next vertex
+    // addVertex(vertex){
+    //     this.list.set(vertex, new Set());
+    // }
+
+    // addEdge(vertex, edge){
+    //     let newRow = vertex[0];
+    //     let newCol = vertex[1] + 2;
+    //     console.log(newRow);
+    // }
+
+    exploreMoves (curr){
+        let edges = [[1, 2], [1, -2]] //[-1, 2], [-1, -2], [2, 1], [2, -1], [-2, 1], [-2, -1]];
+        
+     
+            
+        
+        edges.forEach((edge) => {
+
+            let newRow = curr[0] + edge [0];
+            let newCol = curr[1] + edge [1];
+            let results = [newRow, newCol];
+
+            console.log(results)
+
+            if (results[0] > 7 || results[0] < 0) {
+                console.log('nope')
+            } else if (results[1] > 7 || results[1] < 0) {
+                // return null;
+                console.log('nope')
+
+            } else this.exploreMoves(results);
+
+//kill the operation even before the numbers gets added 
+//theres still some numbers higher than 7 cos you didnt put && condition
+        })
     }
 
-    addEdge(){
-        //make the move of the knight such that row +-2 col +-1
-    }
 
 
-    knightMoves(){ 
-    //uses bfs
-    //shows the shortest possible way to get from one square to another
-    //output all the vertices knight will stop on along the way
+
+    //generate all possible moves 
+    // knightVertices (){
+    //     let initialPos = [4, 3];
+    //     let endPos;
+    //     let edge = [[1, 2], [1, -2], [-1, 2], [-1, -2], [2, 1], [2, -1], [-2, 1], [-2, -1]];
+    //     let nextPos;
+
+
+
+        //need recursion to find the next steps after next post
+        //use adjacency list to map the positions
     }
-}
+
+    // //bfs
+    // levelOrderForEach(callback){
+    // const q = [this.root];              // 1️⃣ Queue holds nodes to visit (BFS hallmark)
+    // while (q.length > 0) {              // 2️⃣ Loop until no more nodes left
+    //     const curr = q.shift();           // 3️⃣ Take one from the *front* of the queue
+    //     callback(curr);                   // 4️⃣ "Visit" this node
+
+    //     if (curr.left !== null) q.push(curr.left);   // 5️⃣ Add children to queue
+    //     if (curr.right !== null) q.push(curr.right);
+    // }
+    // }
+
+
 
 const graph = new Graph();
-graph.addVertex(4,3);
-graph.addEdge(4,3);
+graph.exploreMoves([3,3])
+// graph.addVertex([4,3]);
+// graph.addEdge([4,3]);
+
+// graph.addEdge(4,3);
 
 
 
