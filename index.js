@@ -5,30 +5,33 @@ class Graph {
     }
 
     exploreMoves (curr){
-        let edges = [[1, -2]] //, [-1, 2], [-1, -2], [2, 1], [2, -1], [-2, 1], [-2, -1]];
+        console.log(this.list.set(curr, []))
+        
+        let edges = [[1, -2], [2, 1]] //, [-1, 2], [-1, -2], [2, 1], [2, -1], [-2, 1], [-2, -1]];
 
-        console.log(curr[0])
-        console.log(curr[1])
-
-        // if (curr[0] > 7 || curr[0] < 0 || curr[1] > 7 || curr[1] < 0){
-        //     return;
-        // } else {
         edges.forEach((edge) => {
             let newRow = curr[0] + edge [0];
             let newCol = curr[1] + edge [1];
 
             if (newRow > 7 || newCol > 7 || newRow < 0 || newCol < 0) return;
-            let results = [newRow, newCol];
-            console.log(results)
-            this.exploreMoves(results)
+            let vertex = [newRow, newCol];
+
+            console.log(vertex)
+
+
+            this.exploreMoves(vertex)
+            this.list.get(curr).push(vertex)
+
         })
         }
     }
 
-    // }
+
 
 
 const graph = new Graph();
+console.log(graph.list);
+
 console.log(graph.exploreMoves([2, 3]))
 // graph.addVertex([4,3]);
 // graph.addEdge([4,3]);
