@@ -5,9 +5,13 @@ class Graph {
     }
 
     exploreMoves (curr){
-        console.log(this.list.set(curr, []))
+
+        console.log(curr)
+        if (this.list.has(curr)){
+                return;
+            } else console.log(this.list.set(curr, []));
         
-        let edges = [[1, -2], [2, 1]] //, [-1, 2], [-1, -2], [2, 1], [2, -1], [-2, 1], [-2, -1]];
+        let edges = [[1, 2], [1, -2]]// [-1, -2], [-1, 2]] //, [-1, 2], [-1, -2], [2, 1], [2, -1], [-2, 1], [-2, -1]];
 
         edges.forEach((edge) => {
             let newRow = curr[0] + edge [0];
@@ -17,7 +21,6 @@ class Graph {
             let vertex = [newRow, newCol];
 
             console.log(vertex)
-
 
             this.exploreMoves(vertex)
             this.list.get(curr).push(vertex)
@@ -32,8 +35,8 @@ class Graph {
 const graph = new Graph();
 console.log(graph.list);
 
-console.log(graph.exploreMoves([2, 3]))
-// graph.addVertex([4,3]);
+graph.exploreMoves([2, 3])
+// graph.addVertex([4,3])
 // graph.addEdge([4,3]);
 
 // graph.addEdge(4,3);
