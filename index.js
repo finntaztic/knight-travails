@@ -9,7 +9,7 @@ class Graph {
         console.log(curr)
         if (this.list.has(curr)){
                 return;
-            } else console.log(this.list.set(curr, []));
+            } else this.list.set(curr, []);
         
         let edges = [[1, 2], [1, -2]]// [-1, -2], [-1, 2]] //, [-1, 2], [-1, -2], [2, 1], [2, -1], [-2, 1], [-2, -1]];
 
