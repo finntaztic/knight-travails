@@ -4,16 +4,15 @@ class Graph {
         this.list = new Map();
     }
 
-    exploreMoves (curr){
-
+    exploreMoves(curr){
         const stringKey = curr.toString();
-        console.log(stringKey)
+        // console.log(stringKey)
 
         if (this.list.has(stringKey)){
             return;
         } else this.list.set(stringKey, [])
         
-        let edges = [[1, 2], [1, -2], [-1, -2], [-1, 2],]//  [-1, 2]] //, [-1, 2], [-1, -2], [2, 1], [2, -1], [-2, 1], [-2, -1]];
+        let edges = [[1, 2], [1, -2], [-1, -2], [-1, 2], [2, 1], [2, -1], [-2, 1], [-2, -1]];
 
         edges.forEach((edge) => {
             let newRow = curr[0] + edge [0];
@@ -28,11 +27,16 @@ class Graph {
         })
     }
 
+    knightMoves(curr, next){
+        
+
+    }
+
     printGraph(){
         const vertices = this.list.keys();
         for (let vertex of vertices){
             const connectedNodes = this.list.get(vertex);
-            console.log(`${vertex} -> ${connectedNodes.join(', ')}`)
+            console.log(`${vertex} -> ${connectedNodes.join(' -> ')}`)
         }
     }
 }
@@ -42,7 +46,8 @@ class Graph {
 const graph = new Graph();
 console.log(graph.list);
 
-graph.exploreMoves([2, 3])
+graph.exploreMoves([2, 3]);
+graph.knightMoves([2,3], [4,3]);
 graph.printGraph()
 // graph.addVertex([4,3])
 // graph.addEdge([4,3]);
